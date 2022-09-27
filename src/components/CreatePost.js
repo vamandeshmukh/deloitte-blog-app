@@ -5,24 +5,103 @@ import { createBlogPost } from '../services/BlogPostService';
 
 const CreatePost = () => {
 
+    const [newBlogPost, setNewBlogPost] = useState({});
+
+    useEffect(
+        () => {
+            setNewBlogPost(new BlogPost());
+        }
+        ,
+        []
+    );
+
+    const handleNewBlogPostInput = (evt) => {
+        console.log(`${evt.target.name} ${evt.target.value}`);
+        setNewBlogPost({
+            ...newBlogPost,
+            [evt.target.name]: evt.target.value
+        });
+    };
+
+    const createNewBlogPost = (evt) => {
+        console.log(newBlogPost);
+        createBlogPost(newBlogPost)
+            .then((response) => {
+                console.log(response.data);
+                alert(`Your blog post with title ${response.data.title} has been created successfully!`);
+                setNewBlogPost({ id: '' });
+            })
+            .catch((error) => {
+                console.log(error.message);
+                alert(`Your blog post could not be published due to ${error.message}.`);
+                setNewBlogPost({ id: '' });
+            });
+        evt.preventDefault();
+    }
+
 
     return (
         <div>
             <div className="modal fade" id="createNewBlogPost" data-backdrop="static" data-keyboard="false" tabindex="-1">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Create a new Blog Post</h5>
+                        <div className="modal-header text-center">
+                            <p className="lead text-primary" id="exampleModalLabel">Create a New Blog Post</p>
                             <button type="button" className="close" data-dismiss="modal">
                                 <span>&times;</span>
                             </button>
                         </div>
                         <div className="modal-body">
-                            ...
+                            <form className="form-group">
+                                <input
+                                    type="number"
+                                    name="userId"
+                                    value={newBlogPost.userId}
+                                    className="form-control mt-3 mb-3"
+                                    placeholder="Please enter userId"
+                                    onChange={handleNewBlogPostInput}
+                                    required
+                                    autoFocus
+                                />
+                                <input
+                                    type="text"
+                                    name="title"
+                                    value={newBlogPost.title}
+                                    className="form-control mt-3 mb-3"
+                                    placeholder="Please enter title"
+                                    onChange={handleNewBlogPostInput}
+                                    required
+                                />
+                                <textarea
+                                    type="textarea"
+                                    name="body"
+                                    value={newBlogPost.body}
+                                    className="form-control mt-3 mb-3"
+                                    placeholder="Please enter body"
+                                    onChange={handleNewBlogPostInput}
+                                    required
+                                />
+                                <input
+                                    type="text"
+                                    name="keywords"
+                                    value={newBlogPost.keywords}
+                                    className="form-control mt-3 mb-3"
+                                    placeholder="Please enter keywords"
+                                    onChange={handleNewBlogPostInput}
+                                    required
+                                />
+
+                                {/* <input
+                                    type="button"
+                                    value="Create Post"
+                                    className="btn btn-outline-primary mt-3 mb-3"
+                                    onClick={createNewBlogPost}
+                                /> */}
+                            </form>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary">Save changes</button>
+                            <button type="button" className="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" className="btn btn-outline-primary" onClick={createNewBlogPost} data-dismiss="modal">Create Post</button>
                         </div>
                     </div>
                 </div>

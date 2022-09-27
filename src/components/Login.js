@@ -66,57 +66,73 @@ const Login = () => {
     }
 
     return (
-        <div className="container" >
-            <p className="display-4 text-primary py-3">Login</p>
-            <hr />
-            <div className="col-3 mt-3 py-3 shadow bg-white" >
-                <h1 className="lead text-primary pb-2">Login</h1>
-                <form className="form form-group form-dark ">
-                    <div>
-                        <input
-                            type="text"
-                            name="userName"
-                            id="userName"
-                            className="form-control mb-3"
-                            placeholder="Enter username"
-                            value={appUserToLogin.userName}
-                            onChange={handleAppUserToLogin}
-                            required
-                        />
-                        <input
-                            type="password"
-                            name="password"
-                            id="password"
-                            className="form-control mb-3"
-                            placeholder="Enter password"
-                            value={appUserToLogin.password}
-                            onChange={handleAppUserToLogin}
-                            required
-                        />
-                        <div className="form-group">
-                            <select className="form-control mb-3" name="role" id="role"
-                                onChange={handleAppUserToLogin}>
-                                <option value="Role">Select a role</option>
-                                <option value={appUserToLogin.role}>ADMIN</option>
-                                <option value={appUserToLogin.role}>BLOGGER</option>
-                                <option value={appUserToLogin.role}>READER</option>
-                            </select>
-                        </div>
-                        <input
-                            type="button"
-                            id="submit"
-                            name="submit"
-                            className="form-control btn btn-outline-primary"
-                            value="Login"
-                            onClick={submitLogin}
-                        />
+
+
+        <div className="modal fade" id="loginModal" tabindex="-1">
+            <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="lead text-primary" id="exampleModalLabel">Login</h5>
+                        <button type="button" className="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
                     </div>
-                </form>
+                    <div className="modal-body">
+                        <div>
+                            <form className="form form-group form-dark ">
+                                <div>
+                                    <input
+                                        type="text"
+                                        name="userName"
+                                        id="userName"
+                                        className="form-control mb-3"
+                                        placeholder="Enter username"
+                                        value={appUserToLogin.userName}
+                                        onChange={handleAppUserToLogin}
+                                        required
+                                    />
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        id="password"
+                                        className="form-control mb-3"
+                                        placeholder="Enter password"
+                                        value={appUserToLogin.password}
+                                        onChange={handleAppUserToLogin}
+                                        required
+                                    />
+                                    <div className="form-group">
+                                        <select className="form-control mb-3" name="role" id="role"
+                                            onChange={handleAppUserToLogin}>
+                                            <option value="Role">Select a role</option>
+                                            <option value={appUserToLogin.role}>ADMIN</option>
+                                            <option value={appUserToLogin.role}>BLOGGER</option>
+                                            <option value={appUserToLogin.role}>READER</option>
+                                        </select>
+                                    </div>
+                                    {/* <input
+                                        type="button"
+                                        id="submit"
+                                        name="submit"
+                                        className="form-control btn btn-outline-primary"
+                                        value="Login"
+                                        onClick={submitLogin}
+                                    /> */}
+                                </div>
+                            </form>
+                        </div >
+
+                    </div>
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" className="btn btn-outline-primary" onClick={submitLogin} data-dismiss="modal">Login</button>
+                    </div>
+                    <div className="px-3 py-3">
+                        <Link to="/register" className="btn btn-outline-primary">Not yet registered? Register</Link>
+                    </div>
+                </div>
             </div>
-            <div className="py-3 ">
-                <Link to="/register" className="btn btn-outline-primary col-3">Not yet registered? Register</Link>
-            </div>
-        </div >
+        </div>
     )
 }
 export default Login;
