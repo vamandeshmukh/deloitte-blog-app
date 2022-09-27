@@ -1,5 +1,8 @@
 
-// json-server --watch blog-data.json --port 12345
+// on CMD on any location, run - 
+// D:\VamanPro\Codes\UI_Tech\deloitte-blog-app\blog-data-server\blog-data.json
+// json-server --watch db.json --port 12345
+// json-server --watch D:\VamanPro\Codes\UI_Tech\deloitte-blog-app\blog-data-server\blog-data.json --port 12345
 
 import { configureStore } from "@reduxjs/toolkit";
 

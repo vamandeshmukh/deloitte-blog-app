@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "userName": "sonu",
+      "password": "sonu",
+	  "role": "ADMIN",
+      "id": 1001
+    },
+    {
+      "userName": "vaman",
+      "password": "vaman",
+	  "role": "ADMIN",
+      "id": 1002
+    },
+    {
+      "userName": "monu",
+      "password": "monu",
+	  "role": "BLOGGER",
+      "id": 1003
+    },
+    {
+      "userName": "pooja",
+      "password": "pooja",
+	  "role": "READER",
+      "id": 1004
+    }
+  ]
+}
