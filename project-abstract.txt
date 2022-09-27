@@ -1,0 +1,65 @@
+==================== 
+Deloitte Blogger App 
+==================== 
+
+roles - reader, blogger, admin
+
+use cases - 
+
+as reader 
+---------
+
+search posts 
+read post 
+
+as blogger - 
+------------
+
+register 
+login 
+logout
+create post 
+update post
+delete post
+
+create comment on our own or other's posts
+update comment 
+delete comment 
+
+search posts 
+read post 
+ 
+=======================
+optional functionality
+
+as admin -
+
+view all users 
+remove user  
+=======================
+
+
+
+tools and techs 
+---------------
+
+react
+redux
+routing
+bootstrap 
+jest-dom 
+json-server 
+
+
+steps 
+-----
+
+design UI 
+design flow 
+create backend 
+identify entities / models 
+create model classes 
+create service layer 
+create components 
+test code 
+
