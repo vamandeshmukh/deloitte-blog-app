@@ -66,9 +66,12 @@ test code
 sample links 
 ------------ 
 
+https://ryanfitzgerald.github.io/devblog/ 
 https://recreation-tourism.blogspot.com/ 
 https://www.wpexplorer.com/wordpress-blogs-follow/ 
 https://managewp.com/blog 
 https://www.wpbeginner.com/showcase/best-free-wordpress-blog-themes/ 
 https://www.crazyegg.com/blog/ 
+https://themewagon.com/themes/free-bootstrap-4-html-5-travel-and-tourism-website-template-tripbiz/ 
+https://nordicgiant2.github.io/react-nice-resume-page/ 
 

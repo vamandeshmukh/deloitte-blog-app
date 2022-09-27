@@ -3,26 +3,65 @@
     {
       "userName": "sonu",
       "password": "sonu",
-	  "role": "ADMIN",
+      "role": "ADMIN",
       "id": 1001
     },
     {
       "userName": "vaman",
       "password": "vaman",
-	  "role": "ADMIN",
+      "role": "ADMIN",
       "id": 1002
     },
     {
       "userName": "monu",
       "password": "monu",
-	  "role": "BLOGGER",
+      "role": "BLOGGER",
       "id": 1003
     },
     {
       "userName": "pooja",
       "password": "pooja",
-	  "role": "READER",
+      "role": "READER",
       "id": 1004
+    },
+    {
+      "userName": "isha",
+      "password": "isha",
+      "role": "BLOGGER",
+      "id": 1005
+    }
+  ],
+  "posts": [
+    {
+      "id": 1
+    },
+    {
+      "title": "aa",
+      "body": "aaa",
+      "userId": "1001",
+      "keywords": "aaaa aaa aaa",
+      "id": 2
+    },
+    {
+      "title": "aaaa ",
+      "body": "aaa aaa aaa ",
+      "userId": "1002",
+      "keywords": "aaaa ",
+      "id": 3
+    },
+    {
+      "userId": "1004",
+      "title": "aaa",
+      "body": "aaa",
+      "keywords": "aaa",
+      "id": 4
+    },
+    {
+      "userId": "101",
+      "title": "asdf ",
+      "body": "adsf ;lkj",
+      "keywords": "asdf ;lkj",
+      "id": 5
     }
   ]
 }

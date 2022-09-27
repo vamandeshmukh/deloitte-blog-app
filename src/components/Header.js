@@ -3,39 +3,38 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
 
-    // const currrentUser = useSelector(store => store.appUser.loggedInUser);
+    const currrentUser = useSelector(store => store.appUser.loggedInUser);
 
     return (
         <div>
-            <div>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <Link className="navbar-brand" to="/"><img height="24px" src="../media/Deloitte_logo_black.png" alt="Deloitte"></img> </Link>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav mr-auto">
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/register">Register</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/login">Login</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/logout">Logout</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/profile">Profile</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+                <Link className="navbar-brand" to="/"><img height="24px" src="../assets/img/Deloitte_logo_black.png" alt="Deloitte"></img> </Link>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav mr-auto">
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/write">Write</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/profile">Profile</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/logout">Logout</Link>
+                        </li>
+
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/register">Register</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/login">Login</Link>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
     );
-
 }
 export default Header;
-
-
 

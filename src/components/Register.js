@@ -39,7 +39,7 @@ const Register = () => {
                 tempUser = element;
                 console.log(element);
                 console.log(tempUser);
-                setAppUserToRegister({ userName: '', password: '' });
+                setAppUserToRegister({ userName: '', password: '', role: '' });
                 alert(`user ${appUserToRegister.userName} already exists!`);
                 break;
             }
@@ -50,7 +50,7 @@ const Register = () => {
             register(appUserToRegister)
                 .then((response) => {
                     console.log(response.data);
-                    alert(`User ${response.data.userName} regisetred successfully! Navigating to Login...`);
+                    alert(`User ${response.data.userName} regisetred successfully!`);
                     navigate(`/login`);
                 })
                 .catch((error) => {
@@ -90,12 +90,13 @@ const Register = () => {
                             onChange={handleAppUserToRegister}
                             required
                         />
-                        <div class="form-group">
-                            <select class="form-control mb-3" name="role" id="role" onChange={handleAppUserToRegister}>
+                        <div className="form-group">
+                            <select className="form-control mb-3" name="role" id="role"
+                                onChange={handleAppUserToRegister}>
                                 <option value="Role">Select a role</option>
-                                <option value="ADMIN">ADMIN</option>
-                                <option value="EMPLOYEE">BLOGGER</option>
-                                <option value="MANAGER">READER</option>
+                                <option value={appUserToRegister.role}>ADMIN</option>
+                                <option value={appUserToRegister.role}>BLOGGER</option>
+                                <option value={appUserToRegister.role}>READER</option>
                             </select>
                         </div>
 
@@ -112,6 +113,7 @@ const Register = () => {
             <div className="py-3 ">
                 <Link to="/login" className="btn btn-outline-primary col-3">Already registered? Login</Link>
             </div>
+
         </div >
     );
 

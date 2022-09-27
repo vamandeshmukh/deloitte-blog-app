@@ -6,10 +6,11 @@ class AppUser {
     password;
     role;
 
-    constructor(id, userName, password) {
+    constructor(id, userName, password, role) {
         this.id = id;
         this.userName = userName;
         this.password = password;
+        this.role = role;
     }
 }
 

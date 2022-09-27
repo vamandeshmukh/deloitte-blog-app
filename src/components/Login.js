@@ -23,6 +23,7 @@ const Login = () => {
         []);
 
     const handleAppUserToLogin = (event) => {
+        console.log(event.target.value);
         setAppUserToLogin({
             ...appUserToLogin,
             [event.target.name]: event.target.value
@@ -30,6 +31,7 @@ const Login = () => {
     };
 
     const submitLogin = (event) => {
+        console.log(appUserToLogin);
         let tempUser = {};
         console.log(`submitLogin`);
         usersList.forEach(element => {
@@ -38,14 +40,16 @@ const Login = () => {
             }
         });
 
-        if (tempUser.userName === appUserToLogin.userName && tempUser.password === appUserToLogin.password) {
+        if (tempUser.userName === appUserToLogin.userName
+            && tempUser.password === appUserToLogin.password
+            && tempUser.role === appUserToLogin.role) {
             setAppUserToLogin(tempUser);
             login(tempUser)
                 .then((response) => {
                     console.log(response.data);
                     dispatch(setLoggedInUser(response.data));
-                    alert(`User ${response.data.userName} logged in successfully! Navigating to Home...`);
-                    navigate(`/home`);
+                    alert(`User ${response.data.userName} logged in successfully!`);
+                    navigate(`/`);
                     window.location.reload();
                 })
                 .catch((err) => {
@@ -54,10 +58,9 @@ const Login = () => {
                 });
         }
         else {
-            setAppUserToLogin({ userName: '', password: '' });
+            setAppUserToLogin({ userName: '', password: '', role: '' });
             alert(`Invalid credentials!`);
         }
-
 
         event.preventDefault();
     }
@@ -90,12 +93,13 @@ const Login = () => {
                             onChange={handleAppUserToLogin}
                             required
                         />
-                        <div class="form-group">
-                            <select class="form-control mb-3" name="role" id="role" onChange={handleAppUserToLogin}>
+                        <div className="form-group">
+                            <select className="form-control mb-3" name="role" id="role"
+                                onChange={handleAppUserToLogin}>
                                 <option value="Role">Select a role</option>
-                                <option value="ADMIN">ADMIN</option>
-                                <option value="EMPLOYEE">BLOGGER</option>
-                                <option value="MANAGER">READER</option>
+                                <option value={appUserToLogin.role}>ADMIN</option>
+                                <option value={appUserToLogin.role}>BLOGGER</option>
+                                <option value={appUserToLogin.role}>READER</option>
                             </select>
                         </div>
                         <input

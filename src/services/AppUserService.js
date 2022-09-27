@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = `http://localhost:12345/users`;
+const url = `http://localhost:1234/users`;
 
 const findAllAppUsers = () => {
     console.log(`findAllAppUsers`);

@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Register from "./components/Register";
 import Logout from "./components/Logout";
 import Profile from "./components/Profile";
+import CreatePost from "./components/CreatePost";
 
 const AppRoutes = () => {
 
@@ -17,6 +18,7 @@ const AppRoutes = () => {
                 </div>
                 <div>
                     <Routes>
+                        <Route path="/write" element={<CreatePost />} />
                         <Route path="/home" element={<Home />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/logout" element={<Logout />} />
