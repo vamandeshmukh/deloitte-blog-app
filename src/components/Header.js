@@ -15,7 +15,7 @@ const Header = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/write">Write</Link>
+                            <Link className="nav-link" to="/write" data-toggle="modal" data-target="#exampleModal">Write</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/profile">Profile</Link>
