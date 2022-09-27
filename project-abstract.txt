@@ -63,3 +63,12 @@ create service layer
 create components 
 test code 
 
+sample links 
+------------ 
+
+https://recreation-tourism.blogspot.com/ 
+https://www.wpexplorer.com/wordpress-blogs-follow/ 
+https://managewp.com/blog 
+https://www.wpbeginner.com/showcase/best-free-wordpress-blog-themes/ 
+https://www.crazyegg.com/blog/ 
+
