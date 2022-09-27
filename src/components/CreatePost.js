@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import BlogPost from "../models/BlogPost";
@@ -5,6 +6,7 @@ import { createBlogPost } from '../services/BlogPostService';
 
 const CreatePost = () => {
 
+    const navigate = useNavigate();
     const [newBlogPost, setNewBlogPost] = useState({});
 
     useEffect(
@@ -39,6 +41,10 @@ const CreatePost = () => {
         evt.preventDefault();
     }
 
+    const cancelCreate = () => {
+        navigate(-1);
+    };
+
 
     return (
         <div>
@@ -47,7 +53,7 @@ const CreatePost = () => {
                     <div className="modal-content">
                         <div className="modal-header text-center">
                             <p className="lead text-primary" id="exampleModalLabel">Create a New Blog Post</p>
-                            <button type="button" className="close" data-dismiss="modal">
+                            <button type="button" className="close" onClick={cancelCreate} data-dismiss="modal">
                                 <span>&times;</span>
                             </button>
                         </div>
@@ -90,17 +96,10 @@ const CreatePost = () => {
                                     onChange={handleNewBlogPostInput}
                                     required
                                 />
-
-                                {/* <input
-                                    type="button"
-                                    value="Create Post"
-                                    className="btn btn-outline-primary mt-3 mb-3"
-                                    onClick={createNewBlogPost}
-                                /> */}
                             </form>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" className="btn btn-outline-secondary" onClick={cancelCreate} data-dismiss="modal">Cancel</button>
                             <button type="button" className="btn btn-outline-primary" onClick={createNewBlogPost} data-dismiss="modal">Create Post</button>
                         </div>
                     </div>

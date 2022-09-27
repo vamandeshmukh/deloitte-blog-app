@@ -61,19 +61,20 @@ const Login = () => {
             setAppUserToLogin({ userName: '', password: '', role: '' });
             alert(`Invalid credentials!`);
         }
-
         event.preventDefault();
     }
 
+    const cancelLogin = () => {
+        navigate(-1);
+    };
+
     return (
-
-
         <div className="modal fade" id="loginModal" tabindex="-1">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="lead text-primary" id="exampleModalLabel">Login</h5>
-                        <button type="button" className="close" data-dismiss="modal">
+                        <button type="button" className="close" onClick={cancelLogin} data-dismiss="modal">
                             <span>&times;</span>
                         </button>
                     </div>
@@ -110,30 +111,18 @@ const Login = () => {
                                             <option value={appUserToLogin.role}>READER</option>
                                         </select>
                                     </div>
-                                    {/* <input
-                                        type="button"
-                                        id="submit"
-                                        name="submit"
-                                        className="form-control btn btn-outline-primary"
-                                        value="Login"
-                                        onClick={submitLogin}
-                                    /> */}
                                 </div>
                             </form>
                         </div >
-
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" className="btn btn-outline-secondary" onClick={cancelLogin} data-dismiss="modal">Cancel</button>
                         <button type="button" className="btn btn-outline-primary" onClick={submitLogin} data-dismiss="modal">Login</button>
-                    </div>
-                    <div className="px-3 py-3">
-                        <Link to="/register" className="btn btn-outline-primary">Not yet registered? Register</Link>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 export default Login;
 

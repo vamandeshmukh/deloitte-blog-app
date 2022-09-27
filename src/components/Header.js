@@ -21,11 +21,10 @@ const Header = () => {
                             <Link className="nav-link" to="/profile">Profile</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/logout">Logout</Link>
+                        <Link className="nav-link" to="/logout" data-toggle="modal" data-target="#logoutModal">Logout</Link>
                         </li>
-
                         <li className="nav-item">
-                            <Link className="nav-link" to="/register">Register</Link>
+                            <Link className="nav-link" to="/register" data-toggle="modal" data-target="#registerModal">Register</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/login" data-toggle="modal" data-target="#loginModal">Login</Link>

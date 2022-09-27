@@ -29,6 +29,12 @@
       "password": "isha",
       "role": "BLOGGER",
       "id": 1005
+    },
+    {
+      "userName": "ovi",
+      "password": "ovi",
+      "role": "",
+      "id": 1006
     }
   ],
   "posts": [
