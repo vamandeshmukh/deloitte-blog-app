@@ -10,7 +10,7 @@ const Logout = () => {
 
     const submitLogout = async () => {
         dispatch(setLoggedInUser(''));
-        navigate(`-1`);
+        navigate('/');
         window.location.reload();
     };
 

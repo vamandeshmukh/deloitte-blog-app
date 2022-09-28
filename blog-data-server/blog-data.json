@@ -35,6 +35,12 @@
       "password": "ovi",
       "role": "",
       "id": 1006
+    },
+    {
+      "userName": "yash",
+      "password": "yash",
+      "role": "BLOGGER",
+      "id": 1007
     }
   ],
   "posts": [
@@ -100,6 +106,13 @@
       "userId": "1001",
       "title": "qsdf",
       "id": 11
+    },
+    {
+      "userId": "1001",
+      "title": "asdf",
+      "body": "asdf",
+      "keywords": "asdf asdf",
+      "id": 12
     }
   ]
 }

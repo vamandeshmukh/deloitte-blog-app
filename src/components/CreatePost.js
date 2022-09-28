@@ -30,7 +30,9 @@ const CreatePost = () => {
         createBlogPost(newBlogPost)
             .then((response) => {
                 console.log(response.data);
-                alert(`Your blog post with title ${response.data.title} has been created successfully!`);
+                // alert(`Your blog post with title ${response.data.title} has been created successfully!`);
+                navigate('/');
+
                 setNewBlogPost({ id: '' });
             })
             .catch((error) => {

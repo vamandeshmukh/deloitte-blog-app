@@ -50,7 +50,7 @@ const Register = () => {
             register(appUserToRegister)
                 .then((response) => {
                     console.log(response.data);
-                    alert(`User ${response.data.userName} regisetred successfully!`);
+                    // alert(`User ${response.data.userName} regisetred successfully!`);
                     navigate(`/`);
                 })
                 .catch((error) => {

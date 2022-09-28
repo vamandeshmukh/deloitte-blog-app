@@ -48,7 +48,7 @@ const Login = () => {
                 .then((response) => {
                     console.log(response.data);
                     dispatch(setLoggedInUser(response.data));
-                    alert(`User ${response.data.userName} logged in successfully!`);
+                    // alert(`User ${response.data.userName} logged in successfully!`);
                     navigate(`/`);
                     window.location.reload();
                 })
