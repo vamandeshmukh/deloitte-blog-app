@@ -57,7 +57,7 @@ const ViewPost = () => {
                                 <p className="lead text-primary">{postToDisplay.title}</p>
                                 <p>Posted by {postToDisplay.userName}</p>
                                 <hr />
-                                <p>{postToDisplay.body}</p>
+                                <div style={{ whiteSpace: 'pre-wrap' }}>{postToDisplay.body}</div>
                             </div>
                         </div>
                         <div>

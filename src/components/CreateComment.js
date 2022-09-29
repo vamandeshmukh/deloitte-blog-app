@@ -12,6 +12,7 @@ const CreateComment = () => {
 
     const [newComment, setNewComment] = useState({});
     const [feedback, setFeedback] = useState(false);
+    const [feedback2, setFeedback2] = useState(false);
 
     useEffect(
         () => {
@@ -33,11 +34,10 @@ const CreateComment = () => {
         const tempComment = { body: newComment.body, userId: userIdOfCommentWriter, userName: userNameOfCommentWriter, postId: postIdOfComment };
         console.log(newComment);
         console.log(tempComment);
-        if (!tempComment.body) {
+        if (tempComment.body !== '') {
             createComment(tempComment)
                 .then((response) => {
                     console.log(response.data);
-                    setNewComment({ body: '' });
                 })
                 .catch((error) => {
                     console.log(error.message);
@@ -45,12 +45,17 @@ const CreateComment = () => {
                     setNewComment({ body: '' });
                 });
             setFeedback(true);
-            setTimeout(() => { setFeedback(false); }, 3000);
+            setTimeout(() => {
+                setFeedback(false);
+                setNewComment({ body: '' });
+            }, 3000);
         }
         else {
-            setNewComment({ body: '' });
-            setFeedback(true);
-            setTimeout(() => { setFeedback(false); }, 2000);
+            setFeedback2(true);
+            setTimeout(() => {
+                setFeedback2(false);
+                setNewComment({ body: '' });
+            }, 3000);
         }
 
         evt.preventDefault();
@@ -103,7 +108,7 @@ const CreateComment = () => {
                                 </div>
                             }
                             {
-                                (feedback && newComment.body === '') &&
+                                (feedback2 && newComment.body === '') &&
                                 <div className="border border-outline-primary mt-3 mb-3">
                                     <p className="text-center">Please write a comment to publish.</p>
                                 </div>

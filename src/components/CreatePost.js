@@ -54,7 +54,7 @@ const CreatePost = () => {
     return (
         <div>
             
-            <div className="modal fade" id="createNewBlogPost" data-backdrop="static" data-keyboard="false" tabindex="-1">
+            <div className="modal fade" id="createNewBlogPost" data-backdrop="static" data-keyboard="false" tabIndex="-1">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                         <div className="modal-header text-center">

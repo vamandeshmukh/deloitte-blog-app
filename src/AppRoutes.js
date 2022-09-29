@@ -30,7 +30,8 @@ const AppRoutes = () => {
                         <Route path="/logout" element={<Logout />} />
                         <Route path="/profile" element={<Profile />} />
                         <Route path="/register" element={<Register />} />
-                        <Route path="/" element={<Home />} />
+                        <Route exact path="/" element={<Home />} />
+                        <Route path="/*" element={<Home />} />
                     </Routes>
                 </div>
             </BrowserRouter>

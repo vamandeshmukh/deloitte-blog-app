@@ -65,7 +65,7 @@ const Register = () => {
     };
 
     return (
-        <div className="modal fade" id="registerModal" tabindex="-1">
+        <div className="modal fade" id="registerModal" tabIndex="-1">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header">
