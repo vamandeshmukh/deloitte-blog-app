@@ -5,7 +5,7 @@ const AppUserSlice = createSlice({
     name: `appUser`,
 
     initialState: {
-        appUserData: sessionStorage.getItem('appUserDataStored'),
+        appUserData: sessionStorage.getItem('currentAppUser'),
         loggedInUserId: sessionStorage.getItem('currentUserId'),
         loggedInUserName: sessionStorage.getItem('currentUserName'),
         loggedInUserRole: sessionStorage.getItem('currentUserRole'),

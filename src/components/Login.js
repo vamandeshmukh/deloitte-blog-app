@@ -29,15 +29,22 @@ const Login = () => {
             .then((response) => {
                 const tempData = response.data[0];
                 if (tempData &&
+                    tempData.password === appUserToLogin.password &&
                     (tempData.password === appUserToLogin.password
                         && tempData.role === appUserToLogin.role)) {
                     console.log(tempData);
+                    dispatch(setAppUserData(response.data[0]));
                     dispatch(setLoggedInUserId(tempData.id));
                     dispatch(setLoggedInUserName(tempData.userName));
                     dispatch(setLoggedInUserRole(tempData.role));
+                    sessionStorage.setItem('currentAppUser', tempData);
                     sessionStorage.setItem('currentUserId', tempData.id);
                     sessionStorage.setItem('currentUserName', tempData.userName);
                     sessionStorage.setItem('currentUserRole', tempData.role);
+                    navigate(`/`);
+                }
+                else {
+                    console.log(`Wrong!`);
                     navigate(`/`);
                 }
             })

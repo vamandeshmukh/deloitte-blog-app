@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import BlogPost from "../models/BlogPost";
 import { createBlogPost } from '../services/BlogPostService';
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const CreatePost = () => {
 
@@ -10,6 +10,7 @@ const CreatePost = () => {
     const [newBlogPost, setNewBlogPost] = useState({});
     const bloggerId = useSelector(store => store.appUser.loggedInUserId);
     const bloggerName = useSelector(store => store.appUser.loggedInUserName);
+    const parseLines = (value) => value.replace(/(\n)/g, "\n");
 
     useEffect(
         () => {
@@ -28,7 +29,7 @@ const CreatePost = () => {
     };
 
     const createNewBlogPost = (evt) => {
-        const tempBlogPost = { title: newBlogPost.title, body: newBlogPost.body, userId: bloggerId, userName: bloggerName, imgUrl: newBlogPost.imgUrl };
+        const tempBlogPost = { title: newBlogPost.title, body: newBlogPost.body.replace(/\n/g, "<br />"), userId: bloggerId, userName: bloggerName, imgUrl: newBlogPost.imgUrl };
         console.log(tempBlogPost);
         console.log(newBlogPost);
         createBlogPost(tempBlogPost)
@@ -52,6 +53,7 @@ const CreatePost = () => {
 
     return (
         <div>
+            
             <div className="modal fade" id="createNewBlogPost" data-backdrop="static" data-keyboard="false" tabindex="-1">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
@@ -64,14 +66,10 @@ const CreatePost = () => {
                         <div className="modal-body">
                             <form className="form-group">
                                 <input
-                                    type="number"
-                                    name="userId"
-                                    value={newBlogPost.userId}
+                                    type="text"
+                                    value={`Writing as ${bloggerName}`}
                                     className="form-control mt-3 mb-3"
-                                    placeholder="Please enter userId"
-                                    onChange={handleNewBlogPostInput}
-                                    required
-                                    autoFocus
+                                    disabled
                                 />
                                 <input
                                     type="text"
