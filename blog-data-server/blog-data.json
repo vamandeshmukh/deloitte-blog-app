@@ -7,15 +7,15 @@
       "id": 1001
     },
     {
-      "userName": "vaman",
-      "password": "vaman",
-      "role": "ADMIN",
-      "id": 1002
-    },
-    {
       "userName": "monu",
       "password": "monu",
       "role": "BLOGGER",
+      "id": 1002
+    },
+    {
+      "userName": "vaman",
+      "password": "vaman",
+      "role": "ADMIN",
       "id": 1003
     },
     {
@@ -37,82 +37,81 @@
       "id": 1006
     },
     {
-      "userName": "yash",
-      "password": "yash",
+      "userName": "shilpa",
+      "password": "shilpa",
       "role": "BLOGGER",
       "id": 1007
+    },
+    {
+      "userName": "nilu",
+      "password": "nilu",
+      "role": "BLOGGER",
+      "id": 1008
+    },
+    {
+      "userName": "padma",
+      "password": "padma",
+      "role": "BLOGGER",
+      "id": 1009
+    },
+    {
+      "userName": "pappi",
+      "password": "pappi",
+      "role": "BLOGGER",
+      "id": 1010
     }
   ],
   "posts": [
     {
-      "id": 1
-    },
-    {
-      "title": "aa",
-      "body": "aaa",
-      "userId": "1001",
-      "keywords": "aaaa aaa aaa",
-      "id": 2
-    },
-    {
-      "title": "aaaa ",
-      "body": "aaa aaa aaa ",
+      "title": "Sample Post",
+      "body": "This is a sample post published for testing purpose.",
       "userId": "1002",
-      "keywords": "aaaa ",
-      "id": 3
+      "userName": "sonu",
+      "keywords": "sample, post",
+      "id": 10001
     },
     {
-      "userId": "1004",
-      "title": "aaa",
-      "body": "aaa",
-      "keywords": "aaa",
-      "id": 4
-    },
-    {
-      "userId": "101",
-      "title": "asdf ",
-      "body": "adsf ;lkj",
-      "keywords": "asdf ;lkj",
-      "id": 5
-    },
-    {
-      "id": 6,
-      "userId": "",
-      "title": "Lorem Ipsum",
-      "body": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      "keywords": "Lorem, Ipsum"
-    },
-    {
-      "userId": "1001",
-      "title": "Ola Cab",
-      "body": "Ola cabs is easy to book and cancel. ",
-      "keywords": "Ola, Cab",
-      "id": 7
-    },
-    {
-      "id": 8
-    },
-    {
-      "userId": "10001",
-      "title": "qwerty",
-      "body": "qwerty",
-      "keywords": "qwerty keyboard",
-      "id": 9
-    },
-    {
-      "id": 10
-    },
-    {
-      "userId": "1001",
-      "title": "qsdf",
-      "id": 11
-    },
-    {
-      "userId": "1001",
-      "title": "asdf",
-      "body": "asdf",
-      "keywords": "asdf asdf",
-      "id": 12
+      "title": "Sample Post 2",
+      "body": "This is a another sample post published for testing purpose.",
+      "userId": "1007",
+      "userName": "shilpa",
+      "keywords": "sample, post, 2",
+      "id": 10002
     }
+  ],
+  "comments": [
+    {
+      "body": "Sunny Days is a book written by renowned cricketer Mr Sunil Gawaskar.\n\n",
+      "userId": "1010",
+      "userName": "sonu",
+      "postId": 10001,
+      "id": 100001
+ 
+    },
+    {
+      "body": "Sunny Days is a book written by renowned cricketer Mr Sunil Gawaskar.\n\n",
+      "userId": "1007",
+      "userName": "shilpa",
+      "postId": 10001,
+      "id": 100002
+ 
+    },
+    {
+      "body": "Sunny Days is a book written by renowned cricketer Mr Sunil Gawaskar.\n\n",
+      "userId": "1010",
+      "userName": "pappi",
+      "postId": 10002,
+      "id": 100003
+ 
+    },
+    {
+      "body": "Sunny Days is a book written by renowned cricketer Mr Sunil Gawaskar.\n\n",
+      "userId": "1009",
+      "userName": "padma",
+      "postId": 10002,
+      "id": 100004
+ 
+    }
+ 
   ]
 }

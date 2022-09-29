@@ -1,13 +1,15 @@
 import { useNavigate } from "react-router-dom";
-
 import { useEffect, useState } from "react";
 import BlogPost from "../models/BlogPost";
 import { createBlogPost } from '../services/BlogPostService';
+import { useSelector, useDispatch } from "react-redux";
 
 const CreatePost = () => {
 
     const navigate = useNavigate();
     const [newBlogPost, setNewBlogPost] = useState({});
+    const bloggerId = useSelector(store => store.appUser.loggedInUserId);
+    const bloggerName = useSelector(store => store.appUser.loggedInUserName);
 
     useEffect(
         () => {
@@ -26,13 +28,13 @@ const CreatePost = () => {
     };
 
     const createNewBlogPost = (evt) => {
+        const tempBlogPost = { title: newBlogPost.title, body: newBlogPost.body, userId: bloggerId, userName: bloggerName, imgUrl: newBlogPost.imgUrl };
+        console.log(tempBlogPost);
         console.log(newBlogPost);
-        createBlogPost(newBlogPost)
+        createBlogPost(tempBlogPost)
             .then((response) => {
                 console.log(response.data);
-                // alert(`Your blog post with title ${response.data.title} has been created successfully!`);
-                navigate('/');
-
+                navigate(-1);
                 setNewBlogPost({ id: '' });
             })
             .catch((error) => {
@@ -95,6 +97,15 @@ const CreatePost = () => {
                                     value={newBlogPost.keywords}
                                     className="form-control mt-3 mb-3"
                                     placeholder="Please enter keywords"
+                                    onChange={handleNewBlogPostInput}
+                                    required
+                                />
+                                <input
+                                    type="url"
+                                    name="imgUrl"
+                                    value={newBlogPost.imgUrl}
+                                    className="form-control mt-3 mb-3"
+                                    placeholder="Please paste image url"
                                     onChange={handleNewBlogPostInput}
                                     required
                                 />

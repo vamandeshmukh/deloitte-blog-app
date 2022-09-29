@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.blog-title {
+  font-family: Handlee;
+
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

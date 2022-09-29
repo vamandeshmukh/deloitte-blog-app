@@ -1,25 +1,34 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
 const AppUserSlice = createSlice({
 
     name: `appUser`,
 
     initialState: {
-        appUserData: '',
-        loggedInUser: '',
+        appUserData: sessionStorage.getItem('appUserDataStored'),
+        loggedInUserId: sessionStorage.getItem('currentUserId'),
+        loggedInUserName: sessionStorage.getItem('currentUserName'),
+        loggedInUserRole: sessionStorage.getItem('currentUserRole'),
         appUsersList: []
     },
 
     reducers: {
 
+        setLoggedInUserId: (state, action) => {
+            console.log(action.payload);
+            state.loggedInUserId = action.payload;
+        },
         setAppUserData: (state, action) => {
             console.log(action.payload);
             state.appUserData = action.payload;
         },
-        setLoggedInUser: (state, action) => {
+        setLoggedInUserName: (state, action) => {
             console.log(action.payload);
-            state.loggedInUser = action.payload;
+            state.loggedInUserName = action.payload;
+        },
+        setLoggedInUserRole: (state, action) => {
+            console.log(action.payload);
+            state.loggedInUserRole = action.payload;
         },
         setAppUsersList: (state, action) => {
             console.log(action.payload);
@@ -28,7 +37,6 @@ const AppUserSlice = createSlice({
     }
 });
 
-export const { setAppUserData, setLoggedInUser, setAppUsersList } = AppUserSlice.actions;
-
+export const { setAppUserData, setLoggedInUserId, setLoggedInUserName, setLoggedInUserRole, setAppUsersList } = AppUserSlice.actions;
 
 export default AppUserSlice.reducer;

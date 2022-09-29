@@ -7,8 +7,12 @@ import Register from "./components/Register";
 import Logout from "./components/Logout";
 import Profile from "./components/Profile";
 import CreatePost from "./components/CreatePost";
-
+import AllBlogPosts from "./components/AllBlogPosts";
+import { useParams } from "react-router-dom";
+import ViewPost from "./components/ViewPost";
 const AppRoutes = () => {
+
+    const { id } = useParams();
 
     return (
         <div>
@@ -18,7 +22,9 @@ const AppRoutes = () => {
                 </div>
                 <div>
                     <Routes>
-                        <Route path="/write" element={<CreatePost />} />
+                        <Route path="/all" element={<AllBlogPosts />} />
+                        <Route path="/create-post" element={<CreatePost />} />
+                        <Route path="/viewpost/:id" element={<ViewPost />} />
                         <Route path="/home" element={<Home />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/logout" element={<Logout />} />

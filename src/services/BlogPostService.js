@@ -7,14 +7,15 @@ const findAllBlogPosts = () => {
     return axios.get(url);
 };
 
+const findBlogPost = (id) => {
+    return axios.get(`${url}/${id}`);
+};
+
 const createBlogPost = (blogPost) => {
     console.log(`createBlogPost ${blogPost.title}`);
     return axios.post(url, blogPost);
 };
 
-const findBlogPost = (id) => {
-    return axios.get(`${url}/${id}`);
-};
 
 
-export { findAllBlogPosts, createBlogPost, findBlogPost };
+export { findAllBlogPosts, findBlogPost, createBlogPost };

@@ -7,22 +7,20 @@ const findAllAppUsers = () => {
     return axios.get(url);
 };
 
+const findAppUserById = (id) => {
+    console.log(`findAppUserById ${id}`);
+    return axios.get(`${url}/${id}`);
+};
+
 const register = (appUser) => {
     console.log(`register ${appUser.userName}`);
     return axios.post(url, appUser);
 };
 
-const login = (appUser) => {
-    // need to work on 
+// /posts?title=json-server&author=typicode
+const userLogin = (appUser) => {
     console.log(appUser);
-    return axios.get(`${url}/${appUser.id}`);
+    return axios.get(`${url}?userName=${appUser.userName}`);
 };
 
-const logout = () => {
-    // need to work on 
-    console.log(`logout`)
-    return /* some code */;
-};
-
-
-export { findAllAppUsers, register, login, logout };
+export { findAllAppUsers, findAppUserById, register, userLogin };

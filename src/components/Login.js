@@ -1,10 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setLoggedInUser, setAppUsersList } from '../redux/AppUserSlice';
-import { findAllAppUsers, login } from '../services/AppUserService';
-
+import { useDispatch } from "react-redux";
+import { setAppUserData, setLoggedInUserId, setLoggedInUserName, setLoggedInUserRole } from '../redux/AppUserSlice';
+import { userLogin } from '../services/AppUserService';
 import AppUser from "../models/AppUser";
 
 const Login = () => {
@@ -12,56 +10,42 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [appUserToLogin, setAppUserToLogin] = useState({});
-    const usersList = useSelector(store => store.appUser.appUsersList);
 
     useEffect(() => {
         setAppUserToLogin(new AppUser());
-        findAllAppUsers()
-            .then(resp => dispatch(setAppUsersList(resp.data)))
-            .catch(err => console.log(err.message));
     },
         []);
 
-    const handleAppUserToLogin = (event) => {
-        console.log(event.target.value);
+    const handleAppUserToLogin = (evt) => {
+        console.log(evt.target.name + evt.target.value);
         setAppUserToLogin({
             ...appUserToLogin,
-            [event.target.name]: event.target.value
+            [evt.target.name]: evt.target.value
         });
     };
 
-    const submitLogin = (event) => {
-        console.log(appUserToLogin);
-        let tempUser = {};
-        console.log(`submitLogin`);
-        usersList.forEach(element => {
-            if (element.userName === appUserToLogin.userName) {
-                tempUser = element;
-            }
-        });
-
-        if (tempUser.userName === appUserToLogin.userName
-            && tempUser.password === appUserToLogin.password
-            && tempUser.role === appUserToLogin.role) {
-            setAppUserToLogin(tempUser);
-            login(tempUser)
-                .then((response) => {
-                    console.log(response.data);
-                    dispatch(setLoggedInUser(response.data));
-                    // alert(`User ${response.data.userName} logged in successfully!`);
+    const submitLogin = (evt) => {
+        userLogin(appUserToLogin)
+            .then((response) => {
+                const tempData = response.data[0];
+                if (tempData &&
+                    (tempData.password === appUserToLogin.password
+                        && tempData.role === appUserToLogin.role)) {
+                    console.log(tempData);
+                    dispatch(setLoggedInUserId(tempData.id));
+                    dispatch(setLoggedInUserName(tempData.userName));
+                    dispatch(setLoggedInUserRole(tempData.role));
+                    sessionStorage.setItem('currentUserId', tempData.id);
+                    sessionStorage.setItem('currentUserName', tempData.userName);
+                    sessionStorage.setItem('currentUserRole', tempData.role);
                     navigate(`/`);
-                    window.location.reload();
-                })
-                .catch((err) => {
-                    console.log(err.message);
-                    alert(err.message);
-                });
-        }
-        else {
-            setAppUserToLogin({ userName: '', password: '', role: '' });
-            alert(`Invalid credentials!`);
-        }
-        event.preventDefault();
+                }
+            })
+            .catch((err) => {
+                console.log(err.message);
+                alert(err.message);
+            });
+        evt.preventDefault();
     }
 
     const cancelLogin = () => {
@@ -69,7 +53,7 @@ const Login = () => {
     };
 
     return (
-        <div className="modal fade" id="loginModal" tabindex="-1">
+        <div className="modal fade" id="loginModal" tabIndex="-1">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header">
@@ -102,8 +86,8 @@ const Login = () => {
                                         onChange={handleAppUserToLogin}
                                         required
                                     />
-                                    <div className="form-group">
-                                        <select className="form-control mb-3" name="role" id="role"
+                                    <div className="form-group dropdown">
+                                        <select className="form-control mb-3" data-toggle="dropdown" name="role" id="role"
                                             onChange={handleAppUserToLogin}>
                                             <option value="Role">Select a role</option>
                                             <option value={appUserToLogin.role}>ADMIN</option>
@@ -116,8 +100,8 @@ const Login = () => {
                         </div >
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-outline-secondary" onClick={cancelLogin} data-dismiss="modal">Cancel</button>
                         <button type="button" className="btn btn-outline-primary" onClick={submitLogin} data-dismiss="modal">Login</button>
+                        <button type="button" className="btn btn-outline-secondary" onClick={cancelLogin} data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
             </div>

@@ -6,6 +6,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import appUserReducer from './AppUserSlice';
+import blogPostReducer from './BlogPostSlice';
+import commentReducer from './CommentSlice';
 
 console.log(`store initialized...`);
 
@@ -13,6 +15,8 @@ const store = configureStore({
 
     reducer: {
         appUser: appUserReducer,
+        blogPost: blogPostReducer,
+        comment: commentReducer
     }
 
 });

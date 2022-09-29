@@ -98,8 +98,8 @@ const Register = () => {
                                         onChange={handleAppUserToRegister}
                                         required
                                     />
-                                    <div className="form-group">
-                                        <select className="form-control mb-3" name="role" id="role"
+                                    <div className="form-group dropdown">
+                                        <select className="form-control mb-3" data-toggle="dropdown" name="role" id="role"
                                             onChange={handleAppUserToRegister}>
                                             <option value="Role">Select a role</option>
                                             <option value={appUserToRegister.role}>ADMIN</option>

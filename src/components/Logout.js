@@ -1,30 +1,33 @@
 
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setLoggedInUser } from '../redux/AppUserSlice';
+import { setLoggedInUserId, setLoggedInUserName, setLoggedInUserRole } from '../redux/AppUserSlice';
 
 const Logout = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const submitLogout = async () => {
-        dispatch(setLoggedInUser(''));
+    const submitLogout = () => {
+        dispatch(setLoggedInUserId(''));
+        dispatch(setLoggedInUserName(''));
+        dispatch(setLoggedInUserRole(''));
+        sessionStorage.removeItem('currentUserId');
+        sessionStorage.removeItem('currentUserName');
+        sessionStorage.removeItem('currentUserRole');
         navigate('/');
-        window.location.reload();
     };
 
     const cancelLogout = () => {
         navigate(-1);
     };
 
-
     return (
-        <div className="modal fade" id="logoutModal" tabindex="-1">
+        <div className="modal fade" id="logoutModal" tabIndex="-1">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLabel">Logout</h5>
+                        <h5 className="modal-title">Logout</h5>
                         <button type="button" className="close" onClick={cancelLogout} data-dismiss="modal">
                             <span>&times;</span>
                         </button>
@@ -39,8 +42,8 @@ const Logout = () => {
                 </div>
             </div>
         </div>);
+};
 
-}
 export default Logout;
 
 
