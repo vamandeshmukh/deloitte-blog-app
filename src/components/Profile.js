@@ -12,6 +12,8 @@ const Profile = () => {
             <div className="col-3 mx-3 my-3 px-3 py-3 shadow bg-white" >
                 <h1 className="lead text-primary pb-2">User Profile</h1>
                 <div><span className="material-icons">&#xE87C;</span>
+                    <span class="material-icons">&#xE87C;</span>
+
                     <p>userName: {userName}</p>
                     <p>userRole: {userRole}</p>
                 </div>
